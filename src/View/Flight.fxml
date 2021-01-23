@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import View.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="547.0" prefWidth="924.0" style="-fx-background-color: #3d495f;" styleClass="bodybg" stylesheets="@application.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.FlightController">
+	<bottom>
+	</bottom>
+   <right>
+   </right>
+   <left>
+		<VBox maxHeight="435.0" minHeight="270.0" prefHeight="435.0" prefWidth="270.0" BorderPane.alignment="CENTER">
+			<children>
+            <AnchorPane prefHeight="271.0" prefWidth="278.0">
+               <children>
+      				<HBox layoutX="-21.0" layoutY="82.0" prefHeight="364.0" prefWidth="300.0">
+      					<children>
+      					
+            						<Group translateX="60.0" translateY="60.0" HBox.hgrow="NEVER">
+            							<children>
+            								<Circle fill="#282828" radius="38.0" stroke="BLACK">
+            									<cursor>
+            										<Cursor fx:constant="HAND" />
+            									</cursor>
+            									<effect>
+            										<InnerShadow choke="0.5" color="#000000cd" height="40.0" radius="19.5" width="40.0" />
+            									</effect>
+            								</Circle>
+            								<Circle fx:id="border" fill="#e1ddddd1" layoutX="8.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+            								<Circle fx:id="Joystick" fill="#7c7c7c" layoutX="8.0" radius="35.0" stroke="BLACK">
+            									<cursor>
+            										<Cursor fx:constant="OPEN_HAND" />
+            									</cursor>
+            									<effect>
+            										<InnerShadow choke="0.5" color="#000000cd" height="40.0" radius="19.5" width="40.0">
+            											<input>
+            												<DropShadow height="30.0" radius="14.5" width="30.0" />
+            											</input>
+            										</InnerShadow>
+            									</effect>
+            								</Circle>
+            								<Slider fx:id="rudder" blockIncrement="20.0" layoutX="-65.0" layoutY="106.0" max="1.0" min="-1.0" prefHeight="21.0" prefWidth="140.0" showTickLabels="true" showTickMarks="true">
+            									<cursor>
+            										<Cursor fx:constant="OPEN_HAND" />
+            									</cursor>
+            								</Slider>
+            								<Slider fx:id="throttle" blockIncrement="20.0" layoutX="-127.0" layoutY="-71.0" max="1.0" orientation="VERTICAL" showTickLabels="true" showTickMarks="true">
+            									<padding>
+            										<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            									</padding>
+            									<cursor>
+            										<Cursor fx:constant="OPEN_HAND" />
+            									</cursor>
+            								</Slider>
+            								<Label layoutX="-161.0" layoutY="-11.0" rotate="-90.0" text="Throttle" textFill="WHITE" underline="true">
+            									<font>
+            										<Font name="Century Gothic" size="18.0" />
+            									</font>
+            								</Label>
+            								<Label layoutX="-21.0" layoutY="120.0" text="Rudder" textFill="WHITE" underline="true">
+            									<font>
+            										<Font name="Century Gothic" size="18.0" />
+            									</font>
+            								</Label>
+            								<Label layoutX="-39.0" layoutY="-122.0" text="&lt;- Aileron -&gt;" textFill="WHITE">
+            									<font>
+            										<Font name="Century Gothic" size="18.0" />
+            									</font>
+                                 <padding>
+                                    <Insets left="-5.0" top="-5.0" />
+                                 </padding>
+            								</Label>
+            								<Label layoutX="75.0" layoutY="-4.0" rotate="90.0" text="&lt;- Elevator -&gt;" textFill="WHITE">
+            									<font>
+            										<Font name="Century Gothic" size="18.0" />
+            									</font>
+            								</Label>
+            							</children>
+                           <HBox.margin>
+                              <Insets left="-40.0" top="-30.0" />
+                           </HBox.margin>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+            						</Group>
+      					</children>
+      				</HBox>
+				   <RadioButton fx:id="manual" layoutX="-13.0" layoutY="36.0" mnemonicParsing="false" onAction="#Manual" prefHeight="57.0" prefWidth="196.0" text="Manual" textFill="#bbbbbb">
+					   <font>
+						   <Font name="Century Gothic" size="16.0" />
+					   </font>
+					   <padding>
+						   <Insets left="85.0" />
+					   </padding>
+					   <cursor>
+						   <Cursor fx:constant="HAND" />
+					   </cursor>
+				   </RadioButton>
+               </children>
+            </AnchorPane>
+			</children>
+		</VBox>
+   </left>
+   <right>
+	   <VBox maxHeight="487.0" minHeight="270.0" prefHeight="454.0" prefWidth="230.0" BorderPane.alignment="CENTER">
+		   <children>
+            <AnchorPane prefHeight="373.0" prefWidth="205.0">
+               <children>
+      			   <RadioButton fx:id="auto" layoutX="-34.0" layoutY="52.0" mnemonicParsing="false" onAction="#AutoPilot" prefHeight="57.0" prefWidth="196.0" text="Autopilot" textFill="#bbbbbb">
+      				   <font>
+      					   <Font name="Century Gothic" size="16.0" />
+      				   </font>
+      				   <padding>
+      					   <Insets left="85.0" />
+      				   </padding>
+      				   <cursor>
+      					   <Cursor fx:constant="HAND" />
+      				   </cursor>
+      			   </RadioButton>
+      			   <TextArea fx:id="TextArea" editable="true" layoutX="3.0" layoutY="109.0" maxHeight="365.0" maxWidth="225.0" minHeight="255.0" prefHeight="365.0" prefWidth="215.0" promptText="Load your flight script here!">
+      				   <effect>
+      					   <DropShadow />
+      				   </effect>
+      			   </TextArea>
+               </children>
+            </AnchorPane>
+		   </children>
+	   </VBox>
+   </right>
+   <center>
+
+	   <VBox maxHeight="552.0" minHeight="241.0" prefHeight="485.0" prefWidth="322.0" BorderPane.alignment="CENTER">
+		   <children>
+            <AnchorPane prefHeight="55.0" prefWidth="400.0">
+               <children>
+      
+            			   <Label layoutX="178.0" layoutY="5.0" prefHeight="31.0" prefWidth="82.0" text="Map" textAlignment="RIGHT" textFill="#bbbbbb" underline="true">
+      				   <font>
+      					   <Font size="30.0" />
+      				   </font>
+      				   <effect>
+      					   <Reflection />
+      				   </effect>
+      			   </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="46.0" prefWidth="250.0">
+               <children>
+      			   <Button layoutX="140.0" layoutY="1.0" mnemonicParsing="false" onAction="#LoadMap" prefHeight="25.0" prefWidth="125.0" text="Load Map">
+      				   <cursor>
+      					   <Cursor fx:constant="HAND" />
+      				   </cursor>
+      				   <font>
+      					   <Font name="Century Gothic" size="13.0" />
+      				   </font>
+      				   <effect>
+      					   <Reflection />
+      				   </effect>
+      			   </Button>
+      			   <Button layoutY="1.0" mnemonicParsing="false" onAction="#Connect" prefHeight="25.0" prefWidth="125.0" text="Connect">
+      				   <cursor>
+      					   <Cursor fx:constant="HAND" />
+      				   </cursor>
+      				   <font>
+      					   <Font name="Century Gothic" size="13.0" />
+      				   </font>
+      				   <effect>
+      					   <Reflection />
+      				   </effect>
+      			   </Button>
+      			   <Button layoutX="273.0" layoutY="1.0" mnemonicParsing="false" onAction="#CalculatePath" prefHeight="25.0" prefWidth="125.0" text="Calculate path ">
+      				   <cursor>
+      					   <Cursor fx:constant="HAND" />
+      				   </cursor>
+      				   <font>
+      					   <Font name="Century Gothic" size="13.0" />
+      				   </font>
+      				   <effect>
+      					   <Reflection />
+      				   </effect>
+      			   </Button>
+               </children>
+            </AnchorPane>
+			   <AnchorPane prefHeight="349.0" prefWidth="439.0">
+				   <children>
+					   <MapController fx:id="map" height="310.0" layoutX="78.0" layoutY="3.0" width="260.0" AnchorPane.bottomAnchor="2.0" AnchorPane.topAnchor="2.0" />
+					   <Canvas fx:id="airplane" height="310.0" layoutX="78.0" layoutY="3.0" width="260.0" AnchorPane.bottomAnchor="2.0" AnchorPane.topAnchor="2.0" />
+					   <Canvas fx:id="markX" height="310.0" layoutX="78.0" layoutY="3.0" width="260.0" AnchorPane.bottomAnchor="2.0" AnchorPane.topAnchor="2.0" />
+				   </children>
+				   <VBox.margin>
+					   <Insets right="1.0" top="30.0" />
+				   </VBox.margin>
+			   </AnchorPane>
+		   </children>
+	   </VBox>
+   </center>
+   <top>
+      <Label prefHeight="45.0" prefWidth="936.0" text="             Welcome To Our Flight Gear Controller" textFill="#bbbbbb" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Century Gothic" size="36.0" />
+         </font></Label>
+   </top>
+</BorderPane>
